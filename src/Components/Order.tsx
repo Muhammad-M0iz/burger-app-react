@@ -37,7 +37,7 @@ function Order() {
                     <div className="text-8xl mb-6">🍔</div>
                     <h3 className="text-2xl font-semibold text-amber-800 mb-4">No Orders Yet</h3>
                     <p className="text-amber-600 text-lg mb-8">You haven't placed any orders yet. Start building your perfect burger!</p>
-                    <Link to="/builder" className={buttonStyles.primary}>
+                    <Link to="/" className={buttonStyles.primary}>
                         🚀 Build Your First Burger
                     </Link>
                 </div>
