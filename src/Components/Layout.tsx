@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
 import Logo from "../assets/Logo";
@@ -8,6 +8,7 @@ export default function Layout() {
   const { user, logout } = useAuth();
   const [showNav, setShowNav] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   
   const isActiveLink = (path: string) => location.pathname === path;
 
@@ -64,7 +65,12 @@ export default function Layout() {
               </Link>
               
               <button 
-                onClick={logout} 
+                onClick={
+                  () => {
+                    logout();
+                    navigate('/');
+                  }
+                } 
                 className="px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white transition-all duration-200 transform hover:scale-105 shadow-lg"
               > 
                 🚪 Logout 
